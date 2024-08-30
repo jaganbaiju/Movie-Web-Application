@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+<!--title-->
+{% block title %}
+    DETAILS
+{% endblock %}
+
+<!--body-->
+{% block body %}
+<div class="container" style="padding-top: 20px;" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-md-6" style="padding: 10px;">
+            <img src="{{movie.img.url}}" alt="BikeImg" height="500px" width="430px" >
+        </div>
+        <div class="col-md-6">
+            <h1><b>{{movie.name}}</b></h1>
+            <h3>{{movie.year}}</h3>
+            <p style="font-size:130%">{{movie.desc}}The class global attribute  is a space-separated list of the case-sensitive classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the class selectors  or functions like the DOM method document.getElementsByClassName.</p>
+            <br>
+            <a href="{% url 'movie:update' movie.id %}" class="btn btn-warning">UPDATE</a>
+            <a href="{% url 'movie:delete' movie.id %}" class="btn btn-danger">DELETE</a>
+        </div>
+    </div><br>
+</div>
+{% endblock %}
+

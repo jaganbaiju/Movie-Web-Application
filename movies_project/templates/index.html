@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!--title-->
+{% block title %}
+INDEX
+{% endblock %}
+
+<!--body-->
+{% block body %}
+<h1 class="head text-center">WELCOME</h1><br>
+<div class="container">
+    <div class="row">
+        {% for i in movie %}
+        <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem;">
+                <a href="{% url 'movie:details' i.id %}"><img src="{{i.img.url}}" class="card-img-top" alt="cardImg" height="300px" width="100%"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text">{{i.year}}</p>
+                    <a href="{% url 'movie:details' i.id %}" class="btn btn-primary">check it</a>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
